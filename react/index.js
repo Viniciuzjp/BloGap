@@ -54,6 +54,13 @@ app.get("/posts/:id", (req, res) => {
         res.status(500).send({ message: 'Error updating post' })
       })
   })
+  app.delete("/delete/:id", (req, res) => {
+    const id = req.params.id
+    Post.findOneAndDelete({_id: id})
+    .then((deletedPost) => {
+      res.send(deletedPost)
+    })
+  })
 
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`)

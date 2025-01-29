@@ -6,6 +6,7 @@ import App from './App.tsx'
 import AddPost from './addposts.tsx'
 import EditPost from './editpost.tsx'
 import Posts from './posts.tsx'
+import DeletePost from './deletepost.tsx'
 
 function Router() {
   return (
@@ -15,7 +16,7 @@ function Router() {
         <Route path="/Addposts" element={<AddPost />} />
         <Route path='editpost/:id' element={<EditPost />} />
         <Route path="/posts" element={<Posts />} />
-
+        <Route path="/deletepost/:id" element={<DeletePost />} />
       </Routes>
     </BrowserRouter>
   )

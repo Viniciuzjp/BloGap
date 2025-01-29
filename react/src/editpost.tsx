@@ -29,8 +29,8 @@ export default function EditPost() {
         <>
                 <div className="cardUpdate">
                 <h1>Editar Post</h1>
-                <input type="text" onChange={(e) => setUpdate({...update, title: e.target.value})} defaultValue={data.title} />
-                <input type="text" onChange={(e) => setUpdate({...update, body: e.target.value})} defaultValue={data.body} />
+                <input type="text" onChange={(e) => setUpdate({ ...update, title: e.target.value })} defaultValue={(data as { title: string; body: string }).title} />
+                <input type="text" onChange={(e) => setUpdate({ ...update, body: e.target.value })} defaultValue={(data as { title: string; body: string }).body} />
                 <button onClick={handleClick}>Save</button>
                 </div>
         </>
