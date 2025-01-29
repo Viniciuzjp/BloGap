@@ -4,7 +4,7 @@ const { Schema } = mongoose
 const postSchema = new Schema({
     title: String,
     body: String,
-    createdAt: Date
+    createdAt: { type: Date, default: Date.now }
 })
 
 export default mongoose.model('Post', postSchema)
