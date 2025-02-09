@@ -7,9 +7,12 @@ import AddPost from './addposts.tsx'
 import EditPost from './editpost.tsx'
 import Posts from './posts.tsx'
 import DeletePost from './deletepost.tsx'
+import Register from './register.tsx';
+import Login from './login.tsx';
 
 function Router() {
   return (
+    <>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
@@ -17,8 +20,11 @@ function Router() {
         <Route path='editpost/:id' element={<EditPost />} />
         <Route path="/posts" element={<Posts />} />
         <Route path="/deletepost/:id" element={<DeletePost />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
+    </>
   )
 }
 

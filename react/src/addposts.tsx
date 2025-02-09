@@ -3,10 +3,15 @@ import axios from "axios"
 
 
 export default function AddPost() {
+
+    const author = localStorage.getItem("user")
+    const authotEmail = localStorage.getItem("email")
     const [data, setData] = useState([])
     const [post, setPost] = useState({
         title: "",
-        body: ""
+        body: "",
+        author: author,
+        authorEmail: authotEmail
     })
 
     const handleChange = (e: any) => {
