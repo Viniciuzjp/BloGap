@@ -10,13 +10,52 @@
 .navHome {
   display: flex;
   height: 60px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #e9e9e9;
   width: 100%;
   align-items: center;
+  justify-content: space-between;
 }
 .navHome h1 {
   font-size: 30px;
   margin-left: 10px;
+  color: #fff;
+}
+.toAdd {
+  gap: 10px;
+  cursor: pointer;
+  margin-right: 10px;
+  height: 35px;
+  width: 170px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.toAdd p {
+  margin-top: 15px;
+  margin-left: 8px;
+}
+.iconAdd {
+  margin-right: 5px;
+  font-size: 27px;
+  cursor: pointer;
+  color: #fff !important;
+
+}
+.inputSearch {
+  font-family: cursive;
+  height: 40px;
+  width: 400px;
+  padding-left: 10px;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+.inputSearch:focus {
+  border: 1px solid #9eff8d;
+  transition: all 0.3s ease-in-out;
+  font-family: cursive;
 }
 .container {
   width: 100%;
@@ -76,18 +115,20 @@ hr {
 .sideBarOptions {
   flex-direction: column;
   align-items: center;
-  margin: 70px;
+  margin: 50px;
 }
 .sideBarOptions h3 {
   padding: 10px;
 }
 .iconOptions {
-  display: flex;
+  display: inline;
+  width: auto;
 }
 .icon {
+  width: 40%;
   margin-top: 10px;
-  margin-right: 10px;
-  font-size: 30px;
+  margin-right: 20px;
+  font-size: 40px;
 }
 
 .sidePosts {
@@ -288,4 +329,120 @@ button[type="submit"]:hover {
   border-bottom: 1px solid #ccc;
   padding-left: 10px;
   font-size: 15px;
+}
+.sideCategory {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  width: 30%;
+  border-left: 1px solid #ccc;
+  gap: 10px;
+}
+.category {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 70px;
+  justify-content: space-between;
+}
+.categoryOptions {
+  height: auto;
+  width: 130px;
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  padding-left: 10px;
+  margin: 8px;
+  border-bottom-left-radius: 10px;
+}
+.category-itens {
+  display: flex;
+  height: auto;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.category-itens input {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+}
+.txt-wm {
+  margin: 10px;
+}
+.logo {
+  margin: 10px;
+}
+@media (max-width: 768px) {
+  .sideBar {
+    position: fixed;
+    width: 100%;
+    border-right: none;
+    height: 100px;
+    bottom: 0;
+    left: 0;
+    border-top: 2px solid #ccc;
+  }
+  .sidePosts {
+    margin-left: 0;
+    width: 100%;
+    border-left: 1px solid #ccc;
+  }
+  .sideBarOptions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 50px;
+  }
+  
+  .logo {
+    display: none;
+  }
+  .txt-wm {
+    display: none;
+  }
+  .iconOptions h3 {
+    display: none;
+  }
+  .navHome {
+    flex-direction: column;
+    align-items: center;
+  }
+  .toAdd {
+    width: 100%;
+    justify-content: center;
+    margin: 5px;
+  }
+  .iconAdd {
+    font-size: 20px;
+    z-index: 2;
+  }
+  .inputSearch {
+    border-radius: 5px;
+    padding: 20px;
+    margin: auto auto;
+  }
+  .sideCategory {
+    width: 100%;
+    border-left: none;
+  }
+  .categoryOptions {
+    width: 100%;
+  }
+  .category-itens input {
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+  }
+  .navHome h1 {
+    display: none;
+  }
+  .toAdd p {
+    display: none;
+  }
+  .sideCategory {
+    display: none;
+  }
 }

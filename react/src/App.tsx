@@ -7,6 +7,7 @@ import { FaUserPlus } from "react-icons/fa";
 import { BiSolidUserAccount } from "react-icons/bi";
 import { IoMdLogIn } from "react-icons/io";
 import { Link } from 'react-router-dom';
+import { BsSendPlusFill } from "react-icons/bs";
 
 function App() {
 
@@ -19,13 +20,39 @@ function App() {
     body: '',
     postId: ''
   })
+  const [category, setCategory] = useState('')
+
+  console.log(category)
+
+  const txtWelcome = () => {
+    if (username === '') {
+      return (
+        <div className="txt-wm">
+          <h2 style={{fontFamily: 'cursive'}}>Hello,<br /> Guest</h2>
+        </div>
+      )
+    }else
+    return (
+      <div className="txt-wm">
+        <h2 style={{fontFamily: 'cursive'}}>Hello,<br /> {username}</h2>
+      </div>
+    )
+  }
 
   
   const handleSubmitComments = (e: any) => {
     e.preventDefault()
+    if (comment.body === '') {
+      alert('All fields are required')
+    }
+    else if (comment.author === '') {
+      alert('You must be logged in')
+    }
+    else {
     axios.post('http://localhost:3076/comments', comment)
       .then(res => setComments(res.data))
       .catch(err => console.log(err))
+    }
   }
   const [postComments, setPostComments] = useState<Record<string, any[]>>({});
   
@@ -39,8 +66,6 @@ function App() {
               .catch(err => console.log(err))
       }
   },[comment.postId])
-
-  console.log(comments)
 
   const handleChangeComment = (e: any) => {
     setComment({
@@ -58,22 +83,34 @@ function App() {
     <>
     <div className="main">
     <div className="sideBar">
+        <div className="logo">
+          <h1 style={{fontFamily: 'cursive'}}>BloGap</h1>
+        </div>
+        <div className="txt-wm">
+          {txtWelcome()}
+        </div>
         <div className="sideBarOptions">
           <div className="iconOptions">
+            <Link to="/" className='textDecor'>
           <FaHome className='icon'  />
           <h3>Home</h3>
+          </Link>
           </div>
           <div className="iconOptions">
             <BiSolidUserAccount className='icon' />
             <h3>Perfil</h3>
           </div>
           <div className="iconOptions">
+          <Link to="/register" className='textDecor'>
             <FaUserPlus className='icon' />
-          <Link to="/register" className='textDecor'><h3>Register</h3></Link>
+          <h3>Register</h3>
+          </Link>
           </div>
           <div className="iconOptions">
+          <Link to="/login" className='textDecor'>
             <IoMdLogIn className='icon' />
-          <Link to="/login" className='textDecor'><h3>Login</h3></Link>
+          <h3>Login</h3>
+          </Link>
           </div>
         </div>
         </div>
@@ -81,8 +118,13 @@ function App() {
         <div>
           <div className="navHome">
             <h1>Home</h1>
+            <input type="text" placeholder="Search..." className="inputSearch" onChange={(e) => setCategory(e.target.value)} />
+            <Link style={{ textDecoration: 'none' }} to="/addposts"><div className="toAdd">
+            <p>Send a Post</p>
+            <BsSendPlusFill className='iconAdd' />
+            </div></Link>
           </div>
-          {posts.map((post: any) => (
+          {posts.filter((post: any) => post.category === category || category === '').map((post: any) => (
             <div className="cardForm" key={post._id}>
               <div className="user">
                 <div className="userPhoto">
@@ -138,6 +180,34 @@ function App() {
             </div>
           ))}
         </div>
+      </div>
+      <div className="sideCategory">
+          <div className="category">
+            <div className="categoryOptions" onClick={() => setCategory('')}>
+            <code>Casa</code>
+            <p>Home</p>
+            </div>
+            <div className="categoryOptions" onClick={() => setCategory('News')}>
+            <code>Noticias</code>
+            <p>News</p>
+            </div>
+            <div className="categoryOptions" onClick={() => setCategory('Work')}>
+              <code>Trabalho</code>
+              <p>Work</p>
+            </div>
+            <div className="categoryOptions" onClick={() => setCategory('Nature')}>
+            <code>Natureza</code>
+            <p>Nature</p>
+            </div>
+            <div className="categoryOptions" onClick={() => setCategory('Food')}>
+            <code>Alimento</code>
+            <p>Food</p>
+            </div>
+            <div className="categoryOptions">
+              <code>Trabalho</code>
+              <p>Work</p>
+            </div>
+          </div>
       </div>
     </div>
     </>

@@ -10,6 +10,7 @@ export default function AddPost() {
     const [post, setPost] = useState({
         title: "",
         body: "",
+        category: "Home",
         author: author,
         authorEmail: authotEmail
     })
@@ -19,7 +20,7 @@ export default function AddPost() {
             ...post, [e.target.name]: e.target.value
         })
     }
-    console.log(post)
+    console.log(data)
 
     const handleSubmit = (e: any) => {
         e.preventDefault()
@@ -29,11 +30,8 @@ export default function AddPost() {
         })
         .catch(err => console.log(err))
     }
-    
 
-
-
-    console.log(data)
+    console.log(post)
     return (
         <>
             <div>
@@ -43,6 +41,16 @@ export default function AddPost() {
                     <hr />
                     <input onChange={handleChange} name="title" type="text" placeholder="Title" />
                     <input onChange={handleChange} type="text" name="body" placeholder="Content" />
+                    <div className="category-itens">
+                        <input onChange={handleChange} type="radio" name="category" value="Food" />
+                        <label>Food</label>
+                        <input onChange={handleChange} type="radio" name="category" value="News" />
+                        <label>News</label>
+                        <input onChange={handleChange} type="radio" name="category" value="Work" />
+                        <label>Work</label>
+                        <input onChange={handleChange} type="radio" name="category" value="Nature" />
+                        <label>Nature</label>
+                    </div>
                     <hr />
                     <button onClick={handleSubmit}>Submit</button>
                 </div>
