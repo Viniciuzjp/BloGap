@@ -9,10 +9,12 @@ import Posts from './posts.tsx'
 import DeletePost from './deletepost.tsx'
 import Register from './register.tsx';
 import Login from './login.tsx';
+import Navbar from './navbar.tsx';
 
 function Router() {
   return (
     <>
+    <Navbar />
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />

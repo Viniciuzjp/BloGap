@@ -82,6 +82,7 @@ function App() {
   return (
     <>
     <div className="main">
+      
     <div className="sideBar">
         <div className="logo">
           <h1 style={{fontFamily: 'cursive'}}>BloGap</h1>

@@ -4,8 +4,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background-color: #15202B;
-  color : #FFFFFF
+  background-color: #181C1Fff;
+  color: #fff;
 }
 .navHome {
   display: flex;
